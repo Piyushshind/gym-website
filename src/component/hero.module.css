@@ -1,0 +1,30 @@
+body {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #333;
+    overflow-x: hidden;
+  }
+.heroBlock {
+    background: url('../assets/img1.jpg') no-repeat;
+    background-position: 100% 100%;
+    background-size: cover;
+    height: 50rem;
+    margin-top: 5vh;
+   
+  }
+.containerFluid {
+    margin: 0 auto;
+    max-width: 1200px;
+    padding: 0 15px;
+  }
+  .heroBlock .containerFluid {
+    display: block !important;
+  }
+  .heroBlock .btnHolder {
+    height: auto !important;
+  }
+  
+  .heroBlock .btnHolder button,
+  .heroBlock .btnHolder .fas {
+    margin: 0 10px 0 0;
+  }
