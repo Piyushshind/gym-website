@@ -4,7 +4,7 @@ import React from 'react'
 function Training() {
   return (
    <Carousel autoplay>
-    <div>
+    <div id='Training'>
     <div><h3>Hello</h3></div>
     <div>hi</div>
     <div>bye</div>

@@ -17,8 +17,6 @@ function App() {
       </Header>
       <Content>
         <AppHome/>
-        <About/>
-        <Training/>
         <SignUp/>
       </Content>
       <Footer>
