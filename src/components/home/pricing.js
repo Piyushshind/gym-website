@@ -18,7 +18,7 @@ const data = [
     title: 'Gold',
     content: [
       {
-        price: '₹ 4.999',
+        price: '₹ 4,999',
         pass: '30 Day Access',
         support: '24/7 Access',
         backup: 'Personal Trainer',
