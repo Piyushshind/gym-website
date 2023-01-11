@@ -1,9 +1,10 @@
 import "./App.css";
 import { Layout} from "antd";
-import AppHeader from "./component/Appheader";
-import Home from "./component/home";
-import About from "./component/About";
-import Training from "./component/Training";
+import AppHeader from './components/common/header'
+import AppFooter from "./components/common/footer";
+import About from "./components/home/about";
+import Training from "./components/home/about";
+import AppHome from './views/home'
 const { Header, Content, Footer } = Layout;
 
 
@@ -14,10 +15,13 @@ function App() {
       <AppHeader/>
       </Header>
       <Content>
-        <Home/>
+        <AppHome/>
         <About/>
         <Training/>
       </Content>
+      <Footer>
+        <AppFooter/>
+      </Footer>
     </Layout>
   );
 }
