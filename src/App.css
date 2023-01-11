@@ -50,7 +50,7 @@ title holder
 
 .titleHolder:after {
   transform: translateX(-50%);
-  content: "";
+  content: "    ";
   background: #1890ff;
   position: absolute;
   bottom: 0;
