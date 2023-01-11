@@ -29,6 +29,7 @@ function AppHeader() {
             <Link href="#About" title="About" />
             <Link href="#feature" title="Features" />
             <Link href="#pricing" title="Pricing" />
+            <Link href="#Training" title="Training" />
           </Anchor>
         </div>
         <Button type="primary" danger>Join Us</Button>

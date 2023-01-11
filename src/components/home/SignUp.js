@@ -51,7 +51,7 @@ function SignUp() {
     };
       return (
         <>
-          <form onSubmit={handleSubmit}>
+          <form id='SignUp' onSubmit={handleSubmit}>
             <div className={Style.outer}>
               {Object.keys(formErrors).length === 0 && isSubmit ? (
                 <div style={{ color: "green" }}>Registered successfully</div>
