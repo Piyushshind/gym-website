@@ -1,5 +1,7 @@
 import { Button } from "antd";
 import { Carousel } from "antd";
+// import Link from "antd/es/typography/Link";
+import { Link } from "react-router-dom";
 
 const items = [
   {
@@ -23,9 +25,10 @@ const items = [
 ];
 
 function AppHero() {
+  // const ref = useRef()
   return (
     <div id="hero" className="heroBlock">
-      <Carousel autoplay>
+      <Carousel autoplay  >
         {items.map((item) => {
           return (
             <div key={item.key} className="container-fluid">
@@ -33,11 +36,17 @@ function AppHero() {
                 <h2>{item.title}</h2>
                 <h4>{item.content}</h4>
                 <div className="btnHolder">
-                  <Button type="primary" danger>
+                 <Link to='/SignUp'><Button type="primary" danger>
                     Join Us
-                  </Button>
+                  </Button></Link> 
                 </div>
               </div>
+              {/* <button style={{color:'blue'}} onClick={()=>{
+                  ref.current.next();
+              }}>Next</button>
+                <button onClick={()=>{
+                  ref.current.prev();
+              }}>prev</button> */}
             </div>
           );
         })}

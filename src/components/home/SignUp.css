@@ -48,7 +48,7 @@ input {
 }
 
 .SignUpButton:hover {
-    background-color: #45a049;
+    background-color: #c50707;
 }
 
 @media (max-width: 600px) {

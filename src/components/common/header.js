@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { Anchor, Drawer, Button } from 'antd';
 import {FaDumbbell} from 'react-icons/fa'
+import { Link } from 'react-router-dom';
 
-const { Link } = Anchor;
+
 
 function AppHeader() {
   const [visible, setVisible] = useState(false);
@@ -23,16 +24,16 @@ function AppHeader() {
           <FaDumbbell/>
         GYM</a>
         </div>
-        <div className="mobileHidden">
+        <div style={{display:'flex',alignItems:'center'}} className="mobileHidden">
           <Anchor targetOffset="65">
-            <Link href="#hero" title="Home" />
-            <Link href="#About" title="About" />
-            <Link href="#feature" title="Features" />
-            <Link href="#pricing" title="Pricing" />
-            <Link href="#Training" title="Training" />
+            <a href="#hero" title="Home" >Home</a> &nbsp;
+            <a href="#About" title="About" >About</a> &nbsp;
+            <a href="#feature" title="Features">Features</a> &nbsp;
+            <a href="#pricing" title="Pricing" >Pricing</a> &nbsp;
+            <a href="#Training" title="Training" >Training</a>
           </Anchor>
         </div>
-        <Button type="primary" danger>Join Us</Button>
+       <Link to='/SignUp'><Button type="primary" danger>Join Us</Button></Link> 
         <div className="mobileVisible">
           <Button type="primary" onClick={showDrawer}>
             <i className="fas fa-bars"></i>
