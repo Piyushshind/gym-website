@@ -26,14 +26,14 @@ const data = [
     ]
   },
   {
-    title: 'Premium',
+    title: 'Our Aim Your Fitness',
     content: [
       {
-        price: '₹ 39.999',
-        pass: 'Yearly pass',
-        support: '24/7 Access',
-        backup: 'Personal Trainer, Fitness Coach ',
-        class : 'Weekly 1 Group Class'
+        price: 'We Provide World Class Training',
+        pass: 'We Care For Your Finess',
+        support: '',
+        backup: ' ',
+        class : ''
       }
     ]
   }
@@ -41,6 +41,7 @@ const data = [
 
 function AppPricing() {
   return (
+    <>
     <div id="pricing" className="block pricingBlock bgGray">
       <div className="container-fluid">
         <div className="titleHolder">
@@ -75,6 +76,7 @@ function AppPricing() {
         />
       </div>
     </div>  
+    </>
   );
 }
 export default  AppPricing;

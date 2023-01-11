@@ -16,7 +16,7 @@ function App() {
       </Header>
       <Content>
         <AppHome/>
-        <About/>
+        {/* <About/> */}
         <Training/>
       </Content>
       <Footer>

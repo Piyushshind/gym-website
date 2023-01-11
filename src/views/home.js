@@ -9,7 +9,7 @@ function AppHome() {
   return (
     <div className="main">
       <AppHero/>
-      <AppAbout/>
+      {/* <AppAbout/> */}
       <AppFeature/>
       {/* <AppWorks/> */}
       {/* <AppFaq/> */}

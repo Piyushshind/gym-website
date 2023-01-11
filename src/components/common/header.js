@@ -19,7 +19,7 @@ function AppHeader() {
     <div className="container-fluid">
       <div className="header">
       <div className="logo">
-      <a href="#home">  
+      <a href="#hero">  
           <FaDumbbell/>
         GYM</a>
         </div>
@@ -28,8 +28,6 @@ function AppHeader() {
             <Link href="#hero" title="Home" />
             <Link href="#about" title="About" />
             <Link href="#feature" title="Features" />
-            <Link href="#works" title="How it works" />
-            <Link href="#faq" title="FAQ" />
             <Link href="#pricing" title="Pricing" />
             <Link href="#contact" title="Contact" />
           </Anchor>
@@ -48,8 +46,6 @@ function AppHeader() {
               <Link href="#hero" title="Home" />
               <Link href="#about" title="About" />
               <Link href="#feature" title="Features" />
-              <Link href="#works" title="How it works" />
-              <Link href="#faq" title="FAQ" />
               <Link href="#pricing" title="Pricing" />
               <Link href="#contact" title="Contact" />
             </Anchor>

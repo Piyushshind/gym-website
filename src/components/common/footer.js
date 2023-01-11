@@ -8,7 +8,7 @@ function AppFooter() {
       <div className="footer">
         <div className="logo">
         <FaDumbbell/>
-          <a href="http://google.com">GYM</a>
+          <a href="#hero">GYM</a>
         </div>
         <ul className="socials">
           <li><a href="https://www.facebook.com/"><i className="fab fa-facebook-f"></i></a></li>
