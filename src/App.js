@@ -5,6 +5,7 @@ import AppFooter from "./components/common/footer";
 import About from "./components/home/about";
 import Training from "./components/home/about";
 import AppHome from './views/home'
+import SignUp from "./components/home/SignUp";
 const { Header, Content, Footer } = Layout;
 
 
@@ -16,8 +17,9 @@ function App() {
       </Header>
       <Content>
         <AppHome/>
-        {/* <About/> */}
+        <About/>
         <Training/>
+        <SignUp/>
       </Content>
       <Footer>
         <AppFooter/>

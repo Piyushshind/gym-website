@@ -26,12 +26,12 @@ function AppHeader() {
         <div className="mobileHidden">
           <Anchor targetOffset="65">
             <Link href="#hero" title="Home" />
-            <Link href="#about" title="About" />
+            <Link href="#About" title="About" />
             <Link href="#feature" title="Features" />
             <Link href="#pricing" title="Pricing" />
-            <Link href="#contact" title="Contact" />
           </Anchor>
         </div>
+        <Button type="primary" danger>Join Us</Button>
         <div className="mobileVisible">
           <Button type="primary" onClick={showDrawer}>
             <i className="fas fa-bars"></i>
@@ -44,14 +44,14 @@ function AppHeader() {
           >
             <Anchor targetOffset="65">
               <Link href="#hero" title="Home" />
-              <Link href="#about" title="About" />
+              <Link href="#About" title="About" />
               <Link href="#feature" title="Features" />
               <Link href="#pricing" title="Pricing" />
-              <Link href="#contact" title="Contact" />
             </Anchor>
           </Drawer>
         </div>
       </div>
+     
     </div>
   );
 }

@@ -2,11 +2,13 @@
 general 
 -------
 */
+
 body {
-  font-size: 16px;
+  font-size: 10px;
   line-height: 1.6;
   color: #333;
   overflow-x: hidden;
+  background-color: #000;
 }
 
 .container-fluid {
@@ -118,7 +120,7 @@ header
 .header .ant-anchor-link:after {
   content: "";
   background: #1890ff;
-  width: 1px;
+  width: 2px;
   position: absolute;
   top: 2px;
   bottom: 2px;
@@ -203,6 +205,7 @@ hero
 .heroBlock {
   background: url('https://img.freepik.com/premium-photo/muscular-man-isolated-black_392761-1322.jpg?size=626&ext=jpg')
     no-repeat;
+  
     margin-top: 5%;
   background-position: 50% 100%;
   background-size: cover;
@@ -287,7 +290,7 @@ how it works
 ------------
 */
 .worksBlock {
-  background: url("") no-repeat;
+  /* background: url("") no-repeat; */
   background-position: 50% 0;
   background-size: cover;
   background-attachment: fixed;
@@ -469,5 +472,17 @@ responsive
 
   .mobileHidden {
     display: none;
+  }
+}
+@media screen and (max-width:768px){
+  .heroBlock{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* background: url('https://img.freepik.com/premium-photo/muscular-man-isolated-black_392761-1322.jpg?size=626&ext=jpg')
+  no-repeat; */
+
+  
+    
   }
 }

@@ -1,6 +1,5 @@
-import React from 'react';
-import { Button } from 'antd';
 
+import { Button } from 'antd';
 import { Carousel } from 'antd';
 
 const items = [
@@ -22,7 +21,9 @@ const items = [
 ]
 
 function AppHero() {
+ 
   return (
+
     <div id="hero" className="heroBlock">
       <Carousel autoplay>
         {items.map(item => {
@@ -32,8 +33,7 @@ function AppHero() {
                 <h2>{item.title}</h2>
                 <h4>{item.content}</h4>
                 <div className="btnHolder">
-                  <Button type="primary" size="large">Join Us</Button>
-                  {/* <Button size="large"><i className="fas fa-desktop"></i> Watch a Demo</Button> */}
+                <Button type="primary" danger>Join Us</Button>
                 </div>
               </div>
             </div>  
