@@ -15,7 +15,7 @@ function AppFeature() {
   return (
     <div id="feature" className="block featureBlock bgGray">
       <div className="container-fluid">
-        <div className="titleHolder">
+        <div style={{color:'red', backgroundColor:'black'}} className="titleHolder">
           <h2>Key Features and Benefits</h2>
           <p>Variety of Training. High-Quality Exercise Equipment. </p>
         </div>
