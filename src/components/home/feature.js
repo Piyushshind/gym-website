@@ -24,6 +24,7 @@ function AppFeature() {
             <Card
               hoverable
               // cover={<img alt="Modern Design" src={image1} />}
+              cover = <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Ludovic_and_Lauren_%288425515069%29.jpg/330px-Ludovic_and_Lauren_%288425515069%29.jpg" class="d-block w-100" alt="..."/>
             >
               <Meta title="Thriving Community." />
             </Card>

@@ -40,6 +40,7 @@ const data = [
 ];
 
 function AppPricing() {
+
   return (
     <>
     <div id="pricing" className="block pricingBlock bgGray">
@@ -69,7 +70,7 @@ function AppPricing() {
                 <p>{item.content[0].backup}</p>
                 <p>{item.content[0].access}</p>
                 <p>{item.content[0].class}</p>
-                <Button type="primary" size="large"><i className="fab fa-telegram-plane"></i> Get Started</Button>
+                <Button onClick={()=>{alert('Clicked from Priceing')}} type="primary" size="large"><i className="fab fa-telegram-plane"></i> Get Started</Button>
               </Card>
             </List.Item>
           )}
