@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import './SignUp.css'
 import { Link, useNavigate } from "react-router-dom";
+import Login from './Login'
 
 
 function SignUp() {
@@ -29,7 +30,7 @@ function SignUp() {
         JSON.parse(localStorage.getItem("registeredUserList")) || [];
       userList.push(formValues);
       localStorage.setItem("registeredUserList", JSON.stringify(userList));
-      navigate("../login/Login");
+      navigate("/Login");
     }
   }, [formErrors, isSubmit, formValues, navigate]);
 
