@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import style from './HomeModules/signup.module.css'
+import { useRecoilState } from "recoil";
+//import {LoginDetailsAtom} from './Atom.js'
 
 function Login() {
   const navigate = useNavigate();
@@ -8,6 +10,7 @@ function Login() {
   const [formValues, setFormValues] = useState(initialValues);
   const [formErrors, setFormErrors] = useState({});
   const [isSubmit, setIsSubmit] = useState(false);
+  // const [userdetails,setuserdetails] = useRecoilState(LoginDetailsAtom);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -26,11 +29,14 @@ function Login() {
     );
     if (found) {
       alert(`Welcome ${found.name}`);
-      navigate("../about/About");
+      navigate('/');
+
+      // setuserdetails({...userdetails,isLogin:true})
+      // console.log(userdetails)
     } else {
       alert("wrong Credentials");
     }
-    navigate('/Home')
+    
   };
 
   useEffect(() => {

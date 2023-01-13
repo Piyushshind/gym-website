@@ -29,7 +29,8 @@ function SignUp() {
         JSON.parse(localStorage.getItem("registeredUserList")) || [];
       userList.push(formValues);
       localStorage.setItem("registeredUserList", JSON.stringify(userList));
-      navigate("/Login");
+      navigate('/Login');  
+             
     }
   }, [formErrors, isSubmit, formValues, navigate]);
 
