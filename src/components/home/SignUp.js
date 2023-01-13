@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "./SignUp.css";
+import style from './HomeModules/signup.module.css'
 import { Link, useNavigate } from "react-router-dom";
 
 function SignUp() {
@@ -67,15 +67,15 @@ function SignUp() {
 
   return (
     <>
-      <form onSubmit={handleSubmit}>
-        <div className="main">
+      <form onSubmit={handleSubmit} className={style.maind}>
+        <div  className={style.divv}>
           <h2 style={{ color: "red", fontWeight: "bolder" }}>Register Here</h2>
           {Object.keys(formErrors).length === 0 && isSubmit ? (
             <div style={{ color: "green" }}>Registered successfully</div>
           ) : null}
 
           <input
-            className="input"
+            className={style.inputt}
             type="text"
             name="name"
             placeholder="Username"
@@ -85,7 +85,7 @@ function SignUp() {
           <p style={{ color: "red" }}>{formErrors.name}</p>
 
           <input
-            className="input"
+            className={style.inputt}
             type="text"
             name="email"
             placeholder="Email"
@@ -95,7 +95,7 @@ function SignUp() {
           <p style={{ color: "red" }}>{formErrors.email}</p>
 
           <input
-            className="input"
+            className={style.inputt}
             type="password"
             name="password"
             placeholder="Password"
@@ -104,13 +104,14 @@ function SignUp() {
           />
           <p style={{ color: "red" }}>{formErrors.password}</p>
           <div className="footerbtn">
-            <button className="SignUpButton">Register</button>
+            <button className={style.SignUpButton}>Register</button>
 
             <span>
               Already Register ? Please Login Here.
               <Link to="/Login">Login</Link>
             </span>
           </div>
+          
         </div>
       </form>
     </>

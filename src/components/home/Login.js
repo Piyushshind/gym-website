@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import './SignUp.css';
+import style from './HomeModules/signup.module.css'
 
 function Login() {
   const navigate = useNavigate();
@@ -66,14 +66,14 @@ function Login() {
   return (
     <>
     {/* <Header/> */}
-      <form onSubmit={handleSubmit} >
-        <div >
+      <form onSubmit={handleSubmit} className={style.maind}>
+        <div  className={style.divv}>
           {Object.keys(formErrors).length === 0 && isSubmit ? (
             <div style={{ color: "green" }}>Signed in successfully</div>
           ) : null}
-          
+          <h1>Login</h1>
           <input
-            
+            className={style.inputt}
             type="text"
             name="name"
             placeholder="Username"
@@ -82,7 +82,7 @@ function Login() {
           />
           <p style={{ color: "red" }}>{formErrors.name}</p>
           <input
-          
+             className={style.inputt}
             type="password"
             name="password"
             placeholder="Password"
@@ -96,7 +96,7 @@ function Login() {
               <br />
               <Link to="/signUp" style={{color:"blue"}}>Register</Link>
             </p>
-            <button className="SignUpButton">Login</button>
+            <button className={style.SignUpButton}>Login</button>
           </div>
         </div>
       </form>
