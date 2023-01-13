@@ -43,7 +43,7 @@ function AppPricing() {
 
   return (
     <>
-    <div id="pricing" className="block pricingBlock bgGray">
+    <div  id="pricing" className="block pricingBlock bgGray">
       <div className="container-fluid">
         <div className="titleHolder">
           <h2>Choose a plan to fit your needs</h2>
@@ -70,7 +70,8 @@ function AppPricing() {
                 <p>{item.content[0].backup}</p>
                 <p>{item.content[0].access}</p>
                 <p>{item.content[0].class}</p>
-                <Button onClick={()=>{alert('Clicked from Priceing')}} type="primary" size="large"><i className="fab fa-telegram-plane"></i> Get Started</Button>
+                <Button onClick={()=>{window.confirm('want to Subcribe')}} type="primary" size="large">
+                  <i className="fab fa-telegram-plane"></i> Get Started</Button> 
               </Card>
             </List.Item>
           )}
