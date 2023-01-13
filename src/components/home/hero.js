@@ -14,7 +14,7 @@ const items = [
     key: "2",
     title: "Wellness",
     content:
-      "active pursuit of activities, choices and lifestyles that lead to a state of holistic health.",
+      "If you want something you've never had, you must be willing to do something you've never done.Once you are exercising regularly, the hardest thing is to stop it.” “If you don't make time for exercise, you'll probably have to make time for illness.",
   },
   {
     key: "3",
@@ -33,8 +33,8 @@ function AppHero() {
           return (
             <div key={item.key} className="container-fluid">
               <div className="content">
-                <h2>{item.title}</h2>
-                <h4>{item.content}</h4>
+                <h1>{item.title}</h1>
+                <h5>{item.content}</h5>
                 <div className="btnHolder">
                  <Link to='/SignUp'><Button type="primary" danger>
                     Join Us

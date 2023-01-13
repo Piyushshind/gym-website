@@ -6,7 +6,7 @@
 .upper{
     display: flex;
     position: relative;
-    border: 1px red solid;
+    border: 1px rgb(255, 255, 255) solid;
     width: 218vh;
    
 }
@@ -14,7 +14,7 @@
     position: relative;
     display: flex;
     width: 218vh;
-    border: 1px red solid;
+    border: 1px rgb(255, 255, 255) solid;
 }
 .video{
     margin-top: 100px;

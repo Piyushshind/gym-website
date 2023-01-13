@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
-import './SignUp.css'
+import "./SignUp.css";
 import { Link, useNavigate } from "react-router-dom";
-
 
 function SignUp() {
   const navigate = useNavigate();
@@ -68,21 +67,15 @@ function SignUp() {
 
   return (
     <>
-          
       <form onSubmit={handleSubmit}>
-        <div className=''>
-        <h2 style={{color:'red',fontWeight:'bolder'}}>Register Here</h2>
+        <div className="main">
+          <h2 style={{ color: "red", fontWeight: "bolder" }}>Register Here</h2>
           {Object.keys(formErrors).length === 0 && isSubmit ? (
             <div style={{ color: "green" }}>Registered successfully</div>
           ) : null}
-          <div className=''>
-            <div className=''>
-              {/* <img className={style} src={profile} alt="profile" /> */}
-            </div>
-          </div>
 
           <input
-            className=''
+            className="input"
             type="text"
             name="name"
             placeholder="Username"
@@ -92,7 +85,7 @@ function SignUp() {
           <p style={{ color: "red" }}>{formErrors.name}</p>
 
           <input
-            className=''
+            className="input"
             type="text"
             name="email"
             placeholder="Email"
@@ -102,7 +95,7 @@ function SignUp() {
           <p style={{ color: "red" }}>{formErrors.email}</p>
 
           <input
-            className=''
+            className="input"
             type="password"
             name="password"
             placeholder="Password"
@@ -110,11 +103,14 @@ function SignUp() {
             onChange={handleChange}
           />
           <p style={{ color: "red" }}>{formErrors.password}</p>
-          <div className=''>
+          <div className="footerbtn">
             <button className="SignUpButton">Register</button>
-          </div>
-          <span>Already Register ? Please Login Here.<Link to='/Login'>Login</Link></span>
 
+            <span>
+              Already Register ? Please Login Here.
+              <Link to="/Login">Login</Link>
+            </span>
+          </div>
         </div>
       </form>
     </>
