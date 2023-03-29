@@ -2,6 +2,7 @@ import React from "react";
 import style from "./About.module.css";
 
 function AboutUs() {
+
   return (
     <>
       <div id="About" className={style.main}>
@@ -13,7 +14,7 @@ function AboutUs() {
             title="YouTube video player"
             frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowfullscreen
+            allowFullScreen="true"
            className={style.video}></iframe>
           <div className={style.about}>
             <h2 style={{ color: "red" }}>About Us</h2>
@@ -42,8 +43,8 @@ function AboutUs() {
             <ul>
               <li className={style.li}>Consultations with expert</li>
               <p style={{ color: "white" }}>
-                As part of IESALC’s project on the Futures of Higher Education,
-                we collaborated with higher education experts from every part of
+                As part of IESALC project on the Futures of Higher Education,
+                we collaborated with higher education experts from every part of
                 the world.{" "}
               </p>
 
@@ -63,7 +64,7 @@ function AboutUs() {
               title="YouTube video player"
               frameborder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowfullscreen className={style.video2}
+              allowFullScreen="true" className={style.video2}
 
             ></iframe>
           </div>

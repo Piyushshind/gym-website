@@ -1,7 +1,12 @@
 import { Button } from "antd";
 import { Carousel } from "antd";
+import Atom from '../Atom/Atom'
+import { Data,Data2,Data3 } from "../Atom/Atom";
+import { useRecoilState } from "recoil";
 // import Link from "antd/es/typography/Link";
 import { Link } from "react-router-dom";
+import SignUp from "./SignUp";
+import { useState } from "react";
 
 const items = [
   {
@@ -26,6 +31,16 @@ const items = [
 
 function AppHero() {
   // const ref = useRef()
+  const [show, setShow] = useState(false);
+  const [data, setData] = useRecoilState(Data);
+  const [sub, setSub] = useRecoilState(Data2);
+  const [sub1, setSub2] = useRecoilState(Data3);
+
+  function Logout() {
+    setData(false);
+    setSub(false);
+    setSub2(false);
+}
   return (
     <div id="hero" className="heroBlock">
       <Carousel autoplay  >
@@ -36,17 +51,80 @@ function AppHero() {
                 <h1>{item.title}</h1>
                 <h5>{item.content}</h5>
                 <div className="btnHolder">
-                 <Link to='/SignUp'><Button type="primary" danger>
+                 {/* <Link to='/SignUp'><Button type="primary" danger>
                     Join Us
-                  </Button></Link> 
+                  </Button></Link>  */}
+                  {sub1 ? (
+                      <>
+                        {" "}
+                        <Link className="linkbtn" to="/Activity1">
+                          <span>GO TO ACTIVITY</span>{" "}
+                        </Link>{" "}
+                        <Button type="primary" danger className="joilogin " onClick={() => Logout()}>
+                          LOG OUT
+                        </Button>{" "}
+                      </>
+                    ) : (
+                      <>
+                        {sub ? (
+                          <>
+                            <Link className="linkbtn" to="/activity">
+                              <span>GO TO ACTIVITY</span>
+                            </Link>{" "}
+                            <Button type="primary" danger
+                              className="joilogin "
+                              onClick={() => Logout()}
+                            >
+                              LOG OUT
+                            </Button>{" "}
+                          </>
+                        ) : (
+                          <>
+                            {data ? (
+                              <>
+                                <Link to="/AppPricing">
+                                  <Button type="primary" danger className="/">
+                                    GET STARTED
+                                  </Button>
+                                </Link>{" "}
+                                <Button type="primary" danger
+                                  className="joibus "
+                                  onClick={() => Logout()}
+                                >
+                                  LOG OUT
+                                </Button>{" "}
+                              </>
+                            ) : (
+                              <>
+                                {show ? (
+                                  <>
+                                    <Link to="/SignUp">
+                                      {" "}
+                                      <Button type="primary" danger className="joibus">
+                                        REGISTRATION
+                                      </Button>
+                                    </Link>
+                                    <Link to="/Login">
+                                      {" "}
+                                      <Button type="primary" danger className="joinus">LOGIN</Button>
+                                    </Link>
+                                  </>
+                                ) : (
+                                  <Button type="primary" danger
+                                    onClick={() => setShow(true)}
+                                    className="joinus"
+                                  >
+                                    JOIN US
+                                  </Button>
+                                )}
+                              </>
+                            )}
+                          </>
+                        )}
+                      </>
+                    )}
                 </div>
               </div>
-              {/* <button style={{color:'blue'}} onClick={()=>{
-                  ref.current.next();
-              }}>Next</button>
-                <button onClick={()=>{
-                  ref.current.prev();
-              }}>prev</button> */}
             </div>
           );
         })}

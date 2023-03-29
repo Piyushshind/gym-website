@@ -13,6 +13,5 @@ export const Data2 = atom({
   
   export const Data3 = atom({
     key : "sub1",
-    default: false 
-     
-  })
+    default: false
+ })

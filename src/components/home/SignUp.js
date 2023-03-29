@@ -1,122 +1,185 @@
 import React, { useEffect, useState } from "react";
-import style from './HomeModules/signup.module.css'
+import { Data } from "../../components/Atom/Atom";
+import { useRecoilState } from "recoil";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import "./SignUp.css";
 import { Link, useNavigate } from "react-router-dom";
-import Login from './Login'
 
 function SignUp() {
+  const [login, setLogin] = useRecoilState(Data);
   const navigate = useNavigate();
-  const [formValues, setFormValues] = useState({
-    name: "",
-    email: "",
-    password: "",
-  });
-  const [formErrors, setFormErrors] = useState({});
-  const [isSubmit, setIsSubmit] = useState(false);
-
-  const handleChange = (e) => {
-    setFormValues({ ...formValues, [e.target.name]: e.target.value });
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setFormErrors(validate(formValues));
-    setIsSubmit(true);
-  };
-
   useEffect(() => {
-    if (Object.keys(formErrors).length === 0 && isSubmit) {
-      let userList =
-        JSON.parse(localStorage.getItem("registeredUserList")) || [];
-      userList.push(formValues);
-      localStorage.setItem("registeredUserList", JSON.stringify(userList));
-      navigate('/Login');  
-             
+    if (localStorage.getItem("userDetails")) {
+      let data = JSON.parse(localStorage.getItem("userDetails"));
+      setData(data);
     }
-  }, [formErrors, isSubmit, formValues, navigate]);
+  }, []);
+  const [email, setEmail] = useState("");
+  const [userName, setUserName] = useState("");
+  const [password, setPassword] = useState("");
+  const [EM, setEM] = useState("");
+  const [PW, setPW] = useState("");
+  const [US, setUS] = useState("");
+  const [show, setShow] = useState(false);
+  const [data, setData] = useState([]);
 
-  const validate = (values) => {
-    const errors = {};
+  function captureEmail(e) {
+    setEmail(e.target.value);
+    const regEmail = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
+    if (regEmail.test(email)) {
+      setEM("");
+    } else if (!regEmail.test(email) && email !== "") {
+      setEM("Email is Not Valid");
+    }
+  }
 
-    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
-    var inValid = /\s/;
-    if (inValid.test(values.name)) {
-      errors.name = "*username name wouldn't have whiteSpace";
-    } else if (inValid.test(values.email)) {
-      errors.email = "*email wouldn't have whiteSpace";
-    } else if (inValid.test(values.password)) {
-      errors.password = "*password wouldn't have whiteSpace";
+  function captUserName(e) {
+    setUserName(e.target.value); //first check e byub makin condition
+    const userRegEx = /\s/g;
+    if (userRegEx.test(!userName)) {
+      setUS("");
+    } else if (userRegEx.test(userName) && userName !== "") {
+      setUS("UserName is not Valid");
+    } else {
+      setUS("");
+    }
+  }
+  function capturePassword(e) {
+    setPassword(e.target.value);
+    const pwRegEx = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).{6,20}$/;
+    if (pwRegEx.test(password)) {
+      setPW("");
+    } else if (!pwRegEx.test(password) && password !== " ") {
+      setPW("Password is Not Valid");
+    } else {
+      setPW("");
+    }
+  }
+
+  function handleSubmit(event) {
+    event.preventDefault();
+
+    //===================email
+    function emailExists(email) {
+      for (let i = 0; i < data.length; i++) {
+        if (data[i].Email === email) {
+          return true;
+        }
+      }
+      return false;
     }
 
-    if (!values.name) {
-      errors.name = "*Username is required!";
+    if (emailExists(email)) {
+      alert("Email is already exist");
+      navigate("../Login");
+    } else if (email === "" || userName === "" || password === "") {
+      alert("please enter something");
+    } else if (
+      EM === "EMAIL IS NOT VALID" ||
+      PW === "Password is Not Valid" ||
+      US === "UserName is not Valid"
+    ) {
+      alert("You Have Enter Wrong Details");
+    } else {
+      const userData = {
+        Email: email,
+        UserName: userName,
+        Password: password,
+        isSubScribe20: false,
+        isSubScribe50: false,
+      };
+      data.push(userData);
+      setData([...data]);
+      if (show === true) {
+        setShow(false);
+      } else {
+        setShow(true);
+        toast.success(
+          `${userName.toUpperCase()} You Have Successfully Register`
+        );
+        setLogin(true);
+        setShow(true);
+      }
     }
-
-    if (!values.email) {
-      errors.email = "*Email is required!";
-    } else if (!regex.test(values.email)) {
-      errors.email = "*This is not a valid email format!";
-    }
-    if (!values.password) {
-      errors.password = "*Password is required";
-    } else if (values.password.length < 8) {
-      errors.password = "*Password must be more than 8 characters";
-    } else if (values.password.length > 10) {
-      errors.password = "*Password cannot exceed more than 10 characters";
-    }
-
-    return errors;
-  };
-
+    localStorage.setItem("userDetails", JSON.stringify(data));
+    setEmail("");
+    setUserName("");
+    setPassword("");
+    setEM("");
+    setPW("");
+    setUS("");
+  }
   return (
     <>
-      <form onSubmit={handleSubmit} className={style.maind}>
-        <div  className={style.divv}>
-          <h2 style={{ color: "red", fontWeight: "bolder" }}>Register Here</h2>
-          {Object.keys(formErrors).length === 0 && isSubmit ? (
-            <div style={{ color: "green" }}>Registered successfully</div>
-          ) : null}
-
+      <form onSubmit={handleSubmit}>
+        <h3>Register</h3>
+        <div className="outer">
+          <div className="img">
+            {/* <div className='containerImg'> */}
+            {/* <img style={{borderRadius:'60%',height:'auto',width:'30%'}} className='profile' src={profile} alt="profile" />
+            </div> */}
+          </div>
           <input
-            className={style.inputt}
+            className="user"
             type="text"
             name="name"
             placeholder="Username"
-            value={formValues.name}
-            onChange={handleChange}
+            value={userName}
+            onChange={captUserName}
+            required
           />
-          <p style={{ color: "red" }}>{formErrors.name}</p>
-
+          <p style={{ color: "red" }}>
+            <p>{US}</p>
+          </p>
           <input
-            className={style.inputt}
-            type="text"
+            className="email"
+            type="email"
             name="email"
             placeholder="Email"
-            value={formValues.email}
-            onChange={handleChange}
+            value={email}
+            onChange={captureEmail}
+            required
           />
-          <p style={{ color: "red" }}>{formErrors.email}</p>
-
+          <p>{EM}</p>
           <input
-            className={style.inputt}
+            className="pass"
             type="password"
             name="password"
             placeholder="Password"
-            value={formValues.password}
-            onChange={handleChange}
+            value={password}
+            onChange={capturePassword}
+            required
           />
-          <p style={{ color: "red" }}>{formErrors.password}</p>
-          <div className="footerbtn">
-            <button className={style.SignUpButton}>Register</button>
-
-            <span>
-              Already Register ? Please Login Here.
-              <Link to="/Login">Login</Link>
-            </span>
-         
+          <p style={{ color: "red" }}>{PW}</p>
+          <div className="btn">
+            <button className="SignUpButton">Register</button>
           </div>
-          
         </div>
-      </form>
+        <br />
+        <span>
+          Already, have a account ? &nbsp;<Link to="/login">Login</Link>
+        </span>
+      </form>{" "}
+      {show ? (
+        <p className="redirection">
+          Now You Can Go To <Link to="/">Home</Link> To Get Subscription
+        </p>
+      ) : (
+        ""
+      )}
+      <ToastContainer
+        position="top-center"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
     </>
   );
 }

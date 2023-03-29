@@ -1,113 +1,126 @@
-import React, { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import style from './HomeModules/signup.module.css'
-import { useRecoilState } from "recoil";
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import { toast, ToastContainer } from "react-toastify";
+import { Data, Data2, Data3 } from "../../components/Atom/Atom";
+import { useRecoilState, useRecoilValue } from "recoil";
+import "react-toastify/dist/ReactToastify.css";
+import { useNavigate } from "react-router-dom";
+import "./Login.css";
 
-//import {LoginDetailsAtom} from './Atom.js'
-
-function Login() {  
+function Login() {
+  const [show, setShow] = useState(false);
   const navigate = useNavigate();
-  const initialValues = { name: "", password: "" };
-  const [formValues, setFormValues] = useState(initialValues);
-  const [formErrors, setFormErrors] = useState({});
-  const [isSubmit, setIsSubmit] = useState(false);
-  // const [userdetails,setuserdetails] = useRecoilState(LoginDetailsAtom);
+  const [newData, setNewData] = useRecoilState(Data);
+  setNewData(false);
+  const sub = useRecoilValue(Data2);
+  const sub1 = useRecoilValue(Data3);
+  let getData = JSON.parse(localStorage.getItem("userDetails")); // local storage se array achuka
+  console.log(getData, "i am from local"); // data
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormValues({ ...formValues, [name]: value });
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setFormErrors(validate(formValues));
-    setIsSubmit(true);
-
-    const loggedUser = JSON.parse(localStorage.getItem("registeredUserList"));
-    const found = loggedUser.find(
-      (user) =>
-        user.name === formValues.name && user.password === formValues.password
+  const [userName, setUserName] = useState("");
+  const [password, setPassword] = useState("");
+  function handleSubmit(event) {
+    event.preventDefault();
+    const newARR = getData.filter(
+      (x) => x.UserName === userName && x.Password === password
     );
-    if (found) {
-      alert(`Welcome ${found.name}`);
-      navigate('/');
-
-      // setuserdetails({...userdetails,isLogin:true})
-      // console.log(userdetails)
+    console.log(newARR, "i am matched data from local storage");
+    if (newARR.length === 0) {
+      toast.warning("User not found");
     } else {
-      alert("wrong Credentials");
+      toast.success(` Welcome , ${userName} `);
+      setShow(true);
+      setNewData(true);
+      if (sub === true) {
+        navigate("/activity");
+      }
+      if (sub1 === true) {
+        navigate("/activity1 ");
+      }
     }
-    
-  };
+  }
 
-  useEffect(() => {
-    if (Object.keys(formErrors).length === 0 && isSubmit) {
-    }
-  }, [formErrors, isSubmit]);
+  function loginButNotSUb() {
+    setNewData(true);
+  }
 
-  const validate = (values) => {
-    const errors = {};
-    var inValid = /\s/;
-    if (inValid.test(values.name)) {
-      errors.name = "*username name wouldn't have whiteSpace";
-    } else if (inValid.test(values.email)) {
-      errors.email = "*email wouldn't have whiteSpace";
-    } else if (inValid.test(values.password)) {
-      errors.password = "*password wouldn't have whiteSpace";
-    }
-
-    if (!values.name) {
-      errors.name = "*Username is required!";
-    }
-
-    if (!values.password) {
-      errors.password = "*Password is required";
-    } else if (values.password.length < 8) {
-      errors.password = "*Password must be more than 8 characters";
-    } else if (values.password.length > 10) {
-      errors.password = "*Password cannot exceed more than 10 characters";
-    }
-    return errors;
-  };
-
+  function captUserName(e) {
+    setUserName(e.target.value);
+  }
+  function capturePassword(e) {
+    setPassword(e.target.value);
+  }
   return (
     <>
-    {/* <Header/> */}
-      <form onSubmit={handleSubmit} className={style.maind}>
-        <div  className={style.divv}>
-          {Object.keys(formErrors).length === 0 && isSubmit ? (
-            <div style={{ color: "green" }}>Signed in successfully</div>
-          ) : null}
-          <h1>Login</h1>
+      <form onSubmit={handleSubmit}>
+        <div className="outer">
+          <h3>Login</h3>
+
+          <div className="img">
+            {/* <div className='containerImg'>
+                            <img style={{borderRadius:'60%',height:'auto',width:'30%'}} className='profile' src={profile} alt='profile' /> */}
+            {/* </div> */}
+          </div>
           <input
-            className={style.inputt}
+            className="user"
             type="text"
             name="name"
             placeholder="Username"
-            value={formValues.name}
-            onChange={handleChange}
+            value={userName}
+            onChange={captUserName}
           />
-          <p style={{ color: "red" }}>{formErrors.name}</p>
+          {/* <p style={{ color: "red" }}>{formErrors.username}</p> */}
           <input
-             className={style.inputt}
+            className="pass"
             type="password"
             name="password"
             placeholder="Password"
-            value={formValues.password}
-            onChange={handleChange}
+            value={password}
+            onChange={capturePassword}
           />
-          <p style={{ color: "red" }}>{formErrors.password}</p>
-          <div >
-            <p style={{color:"white"}}>
-              Don't have an account?
-              <br />
-              <Link to="/signUp" style={{color:"blue"}}>Register</Link>
-            </p>
-            <button className={style.SignUpButton}>Login</button>
-            
+          {/* <p style={{ color: "red" }}>{formErrors.password}</p> */}
+          <div className="btn">
+            <button className="SignUpButton">Login</button>
           </div>
         </div>
+        <br />
+        <p>
+          Don't have an account?
+          <br />
+          <Link to="/SignUp">Register</Link>
+        </p>
       </form>
+
+      {show ? (
+        <p className="popup">
+          NOW YOU CAN GET SUBSCRIBED TO OUR PREMIUM FEATURES <br />
+          <Link
+            to="/"
+            style={{
+              color: "white",
+              textDecoration: "none",
+              fontWeight: "bolder",
+              textShadow: "1px 1px black",
+            }}
+          >
+            <button onClick={loginButNotSUb}>Home</button>
+          </Link>
+        </p>
+      ) : (
+        ""
+      )}
+      <ToastContainer
+        position="top-center"
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark"
+      />
     </>
   );
 }
