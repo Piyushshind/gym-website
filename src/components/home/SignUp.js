@@ -112,6 +112,7 @@ function SignUp() {
               Already Register ? Please Login Here.
               <Link to="/Login">Login</Link>
             </span>
+         
           </div>
           
         </div>

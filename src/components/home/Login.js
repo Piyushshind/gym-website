@@ -2,9 +2,10 @@ import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import style from './HomeModules/signup.module.css'
 import { useRecoilState } from "recoil";
+
 //import {LoginDetailsAtom} from './Atom.js'
 
-function Login() {
+function Login() {  
   const navigate = useNavigate();
   const initialValues = { name: "", password: "" };
   const [formValues, setFormValues] = useState(initialValues);
@@ -103,6 +104,7 @@ function Login() {
               <Link to="/signUp" style={{color:"blue"}}>Register</Link>
             </p>
             <button className={style.SignUpButton}>Login</button>
+            
           </div>
         </div>
       </form>

@@ -4,7 +4,10 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
-
+    margin-top: 15rem;
+    margin-left: 15rem;
+    margin-right: 15rem;
+    margin-bottom: 15rem;
 }
 .divv{
  background-color: aliceblue;
