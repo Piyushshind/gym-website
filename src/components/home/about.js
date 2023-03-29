@@ -2,7 +2,6 @@ import React from "react";
 import style from "./About.module.css";
 
 function AboutUs() {
-
   return (
     <>
       <div id="About" className={style.main}>
@@ -13,9 +12,11 @@ function AboutUs() {
             src="https://www.youtube.com/embed/Rwk5PdpTxSU"
             title="YouTube video player"
             frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowFullScreen="true"
-           className={style.video}></iframe>
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web- 
+            share"
+            allowFullScreen={true}
+            className={style.video}
+          ></iframe>
           <div className={style.about}>
             <h2 style={{ color: "red" }}>About Us</h2>
             <br />
@@ -43,8 +44,8 @@ function AboutUs() {
             <ul>
               <li className={style.li}>Consultations with expert</li>
               <p style={{ color: "white" }}>
-                As part of IESALC project on the Futures of Higher Education,
-                we collaborated with higher education experts from every part of
+                As part of IESALC project on the Futures of Higher Education, we
+                collaborated with higher education experts from every part of
                 the world.{" "}
               </p>
 
@@ -58,14 +59,15 @@ function AboutUs() {
           </div>
           <div>
             <iframe
-              width="300px"
-              height="200px"
-              src="https://www.youtube.com/embed/fujboh-W7Sk"
+              width="350px"
+              height="250px"
+              src="https://www.youtube.com/embed/lDECBe_lphU"
               title="YouTube video player"
               frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowFullScreen="true" className={style.video2}
-
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture;
+              web-share"
+              allowFullScreen={true}
+              className={style.video}
             ></iframe>
           </div>
         </div>
