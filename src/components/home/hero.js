@@ -1,11 +1,11 @@
 import { Button } from "antd";
 import { Carousel } from "antd";
-import Atom from '../Atom/Atom'
+//import Atom from '../Atom/Atom'
 import { Data,Data2,Data3 } from "../Atom/Atom";
 import { useRecoilState } from "recoil";
 // import Link from "antd/es/typography/Link";
 import { Link } from "react-router-dom";
-import SignUp from "./SignUp";
+//import SignUp from "./SignUp";
 import { useState } from "react";
 
 const items = [
