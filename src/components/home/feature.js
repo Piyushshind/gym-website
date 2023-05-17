@@ -1,6 +1,5 @@
 import React from "react";
 
-// import image1 from '../../assets/img1.jpg';
 // import image2 from '../../assets/images/clean-design.jpg';
 // import image3 from '../../assets/images/great-support.jpg';
 // import image4 from '../../assets/images/easy-customise.jpg';
